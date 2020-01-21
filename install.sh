@@ -40,7 +40,7 @@ echo ""
 echo "################################"
 
 if hash apt-get 2>/dev/null; then
-	apt-get install git  net-tools lshw dos2unix apache2 gcc netcat python3.5  python3-pip g++ freetype2-demos libatlas-base-dev openldap-dev libpq-dev python-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libffi-dev python3-dev libssl-dev -y
+	apt-get install git  net-tools lshw dos2unix apache2 gcc netcat python3  python3-pip g++ freetype2-demos libatlas-base-dev  libpq-dev python3-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libffi-dev python3-dev libssl-dev -y
 	HTTPD_CONFIG="/etc/apache2/apache2.conf"
 	HAPROXY_WI_VHOST_CONF="/etc/apache2/sites-enabled/haproxy-wi.conf"
 	HTTPD_NAME="apache2"
@@ -130,7 +130,7 @@ else
 	echo "################################"
 cat << EOF > $HAPROXY_WI_VHOST_CONF
 <VirtualHost *:$PORT>
-        ServerName haprox-wi.example.com
+        ServerName hap-wi.example.com
         ErrorLog /var/log/httpd/haproxy-wi.error.log
         CustomLog /var/log/httpd/haproxy-wi.access.log combined
 		TimeOut 600
@@ -319,7 +319,7 @@ echo ""
 echo ""
 echo "################################"
 
-/usr/bin/git clone https://github.com/Aidaho12/haproxy-wi.git /var/www/$HOME_HAPROXY_WI
+/usr/bin/git clone https://github.com/FreeCoding4all/haproxy-wi.git /var/www/$HOME_HAPROXY_WI
 
 if [ $? -eq 1 ]
 then
@@ -335,7 +335,7 @@ echo ""
 echo "################################"
 sudo -H pip3 install --upgrade pip
 sudo pip3 install -r /var/www/$HOME_HAPROXY_WI/requirements.txt
-sudo pip3.5 install -r /var/www/$HOME_HAPROXY_WI/requirements.txt
+
 
 if [ $? -eq 1 ]
 then
